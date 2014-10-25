@@ -1,0 +1,24 @@
+<blocks app="Snap! 4.0, http://snap.berkeley.edu" version="1">
+  <block-definition s="sensor %&apos;portName&apos; value %&apos;index&apos;" type="reporter" category="sensing">
+    <header></header>
+    <code></code>
+    <inputs>
+      <input type="%txt"></input>
+      <input type="%n"></input>
+    </inputs>
+    <script>
+      <block s="doReport">
+        <block s="reportURL">
+          <block s="reportJoinWords">
+            <list>
+              <l>./ev3dev/sensor?portName=</l>
+              <block var="portName"/>
+              <l>&amp;index=</l>
+              <block var="index"/>
+            </list>
+          </block>
+        </block>
+      </block>
+    </script>
+  </block-definition>
+</blocks>

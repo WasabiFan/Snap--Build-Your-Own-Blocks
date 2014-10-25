@@ -1782,9 +1782,12 @@ Process.prototype.reportURL = function (url) {
     if (!this.httpRequest) {
         this.httpRequest = new XMLHttpRequest();
         
-        if(url.indexOf("://") == -1)
+        var dotIndex = url.indexOf(".");
+        if(url.indexOf("://") == -1 && dotIndex != 0)
             url = "http://" + url;
-            
+        else if (dotIndex == 0)
+            url = url.substring(1);
+        
         this.httpRequest.open("GET", url, true);
         this.httpRequest.send(null);
     } else if (this.httpRequest.readyState === 4) {
