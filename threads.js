@@ -1781,7 +1781,7 @@ Process.prototype.reportURL = function (url) {
     var response;
     if (!this.httpRequest) {
         this.httpRequest = new XMLHttpRequest();
-        this.httpRequest.open("GET", 'http://' + url, true);
+        this.httpRequest.open("GET", url, true);
         this.httpRequest.send(null);
     } else if (this.httpRequest.readyState === 4) {
         response = this.httpRequest.responseText;
