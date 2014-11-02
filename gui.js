@@ -277,6 +277,7 @@ IDE_Morph.prototype.openIn = function (world) {
     function getURL(url) {
         try {
             var request = new XMLHttpRequest();
+            request.setRequestHeader("If-Modified-Since", "Sat, 1 Jan 2005 00:00:00 GMT");
             request.open('GET', url, false);
             request.send();
             if (request.status === 200) {
